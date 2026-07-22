@@ -15,7 +15,8 @@ public class MainController {
 
     @GetMapping("/")
     public String index(@RequestHeader("X-Api-Version") String apiVersion) {
-        logger.info("Received a request for API version " + apiVersion);
+        String sanitizedApiVersion = apiVersion.replaceAll("[\\r\\n]", "_");
+        logger.info("Received a request for API version " + sanitizedApiVersion);
         return "Hello, world!";
     }
 
