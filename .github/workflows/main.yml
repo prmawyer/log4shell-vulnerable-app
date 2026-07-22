@@ -24,11 +24,10 @@ jobs:
         HARNESS_ORG_ID: sandbox
         HARNESS_PROJECT_ID: PatrickMawyer_Sandbox
         HARNESS_API_KEY: ${{ secrets.HARNESS_API_KEY }}
-        TARGET: <image>:<tag>
+        TARGET: pkg.harness.io/eerjnxtns4grlg5vnnjzuw/log4shell-vulnerable-app/log4j-vulnerable-app:latest
         TOOL: Syft
         FORMAT: spdx-json
         ATTEST: true
-        KMS_KEY: <path_to_your_key>
 
     - name: SLSA Provenance Generation
       uses: harness/github-actions/slsa-generation@1.1.0
@@ -38,7 +37,6 @@ jobs:
         HARNESS_ORG_ID: sandbox
         HARNESS_PROJECT_ID: PatrickMawyer_Sandbox
         HARNESS_API_KEY: ${{ secrets.HARNESS_API_KEY }}
-        TARGET: <image>:<tag>
+        TARGET: pkg.harness.io/eerjnxtns4grlg5vnnjzuw/log4shell-vulnerable-app/log4j-vulnerable-app:latest
         ATTEST: true
-        KMS_KEY: <path_to_your_key>
 
