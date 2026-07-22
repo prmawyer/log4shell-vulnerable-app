@@ -1,7 +1,6 @@
 name: Harness-SCS
 
 on:
-  pull_request:
   workflow_dispatch:
   push:
     # We recommend triggering a scan when merging to your default branch
