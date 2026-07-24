@@ -2,6 +2,7 @@ FROM gradle:7.3.1-jdk17 AS builder
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
 RUN gradle bootJar --no-daemon
+RUN apk upgrade --no-cache busybox
 
 
 FROM openjdk:8u181-jdk-alpine
