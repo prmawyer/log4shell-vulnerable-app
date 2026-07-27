@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.util.Strings;
 
 @RestController
 public class MainController {
@@ -16,6 +17,7 @@ public class MainController {
     @GetMapping("/")
     public String index(@RequestHeader("X-Api-Version") String apiVersion) {
         String sanitizedApiVersion = apiVersion.replaceAll("[\\r\\n]", "_").replaceAll("[\\[\\](){}<>\"'\\\\]", "_");
+        sanitizedApiVersion = Strings.escapeJson(sanitizedApiVersion);
         logger.info("Received a request for API version " + sanitizedApiVersion);
         return "Hello, world!";
     }
